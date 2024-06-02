@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class View {
     public static void main(String[] args) {
@@ -15,16 +16,20 @@ public class View {
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //Saame JavaKujundid.txt asukoht ja lisame label'sse
+        String currentDirectory = System.getProperty("user.dir");
+        File file = new File(currentDirectory, "JavaKujundid.txt");
+        String filePath = file.getAbsolutePath();
+        JLabel label = new JLabel("Kõik tulemused asuvad: " + filePath);
+
+        JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        labelPanel.add(label);
         JTabbedPane tabbedPane = new JTabbedPane();
-
-        JPanel cylinderPanel = createCylinderPanel();
-        JPanel spherePanel = createSpherePanel();
-
-        tabbedPane.add("Silinder", cylinderPanel);
-        tabbedPane.add("Kera", spherePanel);
+        tabbedPane.add("Silinder", createCylinderPanel());
+        tabbedPane.add("Kera", createSpherePanel());
 
         frame.add(tabbedPane, BorderLayout.CENTER);
-
+        frame.add(labelPanel, BorderLayout.SOUTH);
         frame.setVisible(true);
     }
 

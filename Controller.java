@@ -11,7 +11,7 @@ public class Controller {
         double volume = cylinder.getVolume();
         String content = "Silinder;" + radius + ";" + height + ";" + totalSurface + ";" + lateralSurface + ";" + volume;
         fileSave(content);
-        return "<html>Külg pindala: " + lateralSurface + "<br>Kogu pindala: " + totalSurface + "<br>Ruumala: " + volume + "</html>";
+        return "<html>Silindri raadius: " + radius + "<br>Silindri kõrgus: " + height + "<br>Külg pindala: " + lateralSurface + "<br>Kogu pindala: " + totalSurface + "<br>Ruumala: " + volume + "</html>";
     }
 
     public static String calculate (double radius) {
@@ -21,7 +21,7 @@ public class Controller {
         double volume = sphere.getVolume();
         String content = "Kera;" + radius + ";" + totalSurface + ";" + circumference + ";" + volume;
         fileSave(content);
-        return "<html>Ümbermõõt: " + circumference + "<br>Kogu pindala: " + totalSurface + "<br>Ruumala: " + volume + "</html>";
+        return "<html> Kera raadius: " + radius + "<br>Ümbermõõt: " + circumference + "<br>Kogu pindala: " + totalSurface + "<br>Ruumala: " + volume + "</html>";
     }
 
     public static void fileSave(String content) {
