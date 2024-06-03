@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 public class View {
-    public static void main(String[] args) {
+    public static void start () {
         JFrame frame = new JFrame("Silindri ja Kera kalkulaator");
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +69,7 @@ public class View {
     private static JPanel createSpherePanel() {
         JPanel panel = new JPanel(new FlowLayout());
 
-        JLabel radiusLabel = new JLabel("Raadius:");
+        JLabel radiusLabel = new JLabel("Siseta kera raadius:");
         JTextField radiusField = new JTextField(10);
         JLabel resultLabel = new JLabel();
 
