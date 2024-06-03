@@ -4,8 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -34,7 +33,9 @@ public class View {
     }
 
     private static JPanel createCylinderPanel() {
-        JPanel panel = new JPanel(new FlowLayout());
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
 
         JLabel radiusLabel = new JLabel("Raadius:");
         JTextField radiusField = new JTextField(10);
@@ -56,18 +57,37 @@ public class View {
             }
         });
 
-        panel.add(radiusLabel);
-        panel.add(radiusField);
-        panel.add(heightLabel);
-        panel.add(heightField);
-        panel.add(calculateButton);
-        panel.add(resultLabel);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panel.add(radiusLabel, gbc);
+
+        gbc.gridx = 1;
+        panel.add(radiusField, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panel.add(heightLabel, gbc);
+
+        gbc.gridx = 1;
+        panel.add(heightField, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        panel.add(calculateButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        panel.add(resultLabel, gbc);
 
         return panel;
     }
 
     private static JPanel createSpherePanel() {
-        JPanel panel = new JPanel(new FlowLayout());
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
 
         JLabel radiusLabel = new JLabel("Siseta kera raadius:");
         JTextField radiusField = new JTextField(10);
@@ -86,10 +106,22 @@ public class View {
             }
         });
 
-        panel.add(radiusLabel);
-        panel.add(radiusField);
-        panel.add(calculateButton);
-        panel.add(resultLabel);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panel.add(radiusLabel, gbc);
+
+        gbc.gridx = 1;
+        panel.add(radiusField, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2;
+        panel.add(calculateButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        panel.add(resultLabel, gbc);
 
         return panel;
     }
